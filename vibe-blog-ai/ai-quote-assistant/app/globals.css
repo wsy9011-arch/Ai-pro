@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* 모바일 앱처럼 UI 텍스트 선택 방지 */
+  -webkit-user-select: none;
+  user-select: none;
+
+  /* 길게 눌렀을 때 브라우저 터치 메뉴 최소화 */
+  -webkit-touch-callout: none;
+}
+
+/* 입력하거나 복사해야 하는 영역은 선택 허용 */
+input,
+textarea,
+[contenteditable="true"],
+.select-text {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+/* 버튼/링크 터치 반응 개선 */
+button,
+a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
